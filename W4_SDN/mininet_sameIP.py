@@ -24,9 +24,11 @@ class NetworkTopo( Topo ):
         H2 = self.addHost( 'H2', ip='192.168.0.2/28' )
         
         # Connecting hosts to switches
-        self.addLink(H1, s[1])
-        self.addLink(H2, s[2])
-        self.addLink(s[1], s[2])
+        self.addLink(H1, s[5])
+        self.addLink(s[5], s[1])
+        self.addLink(s[5], s[2])
+        self.addLink(s[2], s[7])
+        self.addLink(H2, s[7])
 
 
 def run():
