@@ -11,6 +11,8 @@ from mininet.cli import CLI
 from mininet.link import Intf
 from mininet.node import Controller
 
+from mininet.node import Ryu
+
 class NetworkTopo( Topo ):
     # Builds network topology
     def build( self, **_opts ):
@@ -43,7 +45,7 @@ def run():
 
     topo = NetworkTopo()
     
-    net = Mininet( topo=topo, controller="ryu" )
+    net = Mininet( topo=topo, controller=Ryu )
     net.start()
     CLI( net )
     net.stop()
