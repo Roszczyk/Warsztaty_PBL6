@@ -25,6 +25,7 @@ class NetworkTopo( Topo ):
         
         # Connecting hosts to switches
         self.addLink(H1, s[5], delay="3ms")
+        self.addLink(H2, s[0], delay="1ms")
         self.addLink(s[5], s[1], delay="1ms")
         self.addLink(s[1], s[2], delay="5ms")
         self.addLink(s[5], s[3], delay="2ms")
@@ -34,7 +35,6 @@ class NetworkTopo( Topo ):
         self.addLink(s[4], s[3], delay="2ms")
         self.addLink(s[3], s[0], delay="5ms")
         self.addLink(s[5], s[0], delay="3ms")
-        self.addLink(s[0], H2, delay="1ms")
         self.addLink(s[6], s[3], delay="1ms")
         self.addLink(s[6], s[0], delay="1ms")
 
@@ -43,7 +43,7 @@ def run():
 
     topo = NetworkTopo()
     
-    net = Mininet( topo=topo, controller=None )
+    net = Mininet( topo=topo, controller="ryu" )
     net.start()
     CLI( net )
     net.stop()
