@@ -26,7 +26,7 @@ class NetworkTopo( Topo ):
         # Connecting hosts to switches
         self.addLink(H1, s[5], delay="3ms")
         self.addLink(s[5], s[1], delay="1ms")
-        self.addLink(s[5], s[2], delay="2ms")
+        self.addLink(s[5], s[3], delay="2ms")
         self.addLink(s[2], s[7], delay="4ms")
         self.addLink(s[0], s[7], delay="1ms")
         self.addLink(s[5], s[4], delay="3ms")
