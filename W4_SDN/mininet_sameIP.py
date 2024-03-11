@@ -31,9 +31,9 @@ class NetworkTopo( Topo ):
         self.addLink(H2, s[7])
         self.addLink(H1, s[4])
         self.addLink(s[4], s[3])
-        self.addLink(s[3], s[8])
-        self.addLink(s[5], s[8])
-        self.addLink(s[8], H2)
+        self.addLink(s[3], s[0])
+        self.addLink(s[5], s[0])
+        self.addLink(s[0], H2)
         self.addLink(s[6], s[3])
         self.addLink(s[6], H2)
 
