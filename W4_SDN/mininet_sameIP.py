@@ -15,15 +15,17 @@ class NetworkTopo( Topo ):
     # Builds network topology
     def build( self, **_opts ):
 
-        s1 = self.addSwitch ( 's1', failMode='standalone' )
+        s = []
+        for i in range(8):
+            s.append(self.addSwitch ( f's{i}', failMode='standalone' ))
 
         # Adding hosts
         H1 = self.addHost( 'H1', ip='192.168.0.1/28' )
         H2 = self.addHost( 'H2', ip='192.168.0.2/28' )
         
         # Connecting hosts to switches
-        self.addlink(H1, s1)
-        self.addlink(H2, s1)
+        self.addLink(H1, s[1])
+        self.addLink(H2, s[2])
 
 
 def run():
