@@ -28,14 +28,14 @@ class NetworkTopo( Topo ):
         self.addLink(s[5], s[1], delay="1ms")
         self.addLink(s[5], s[2], delay="2ms")
         self.addLink(s[2], s[7], delay="4ms")
-        self.addLink(H2, s[7], delay="1ms")
-        self.addLink(H1, s[4], delay="3ms")
+        self.addLink(s[0], s[7], delay="1ms")
+        self.addLink(s[5], s[4], delay="3ms")
         self.addLink(s[4], s[3], delay="2ms")
         self.addLink(s[3], s[0], delay="5ms")
         self.addLink(s[5], s[0], delay="3ms")
         self.addLink(s[0], H2, delay="1ms")
         self.addLink(s[6], s[3], delay="1ms")
-        self.addLink(s[6], H2, delay="1ms")
+        self.addLink(s[6], s[0], delay="1ms")
 
 
 def run():
