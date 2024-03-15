@@ -43,7 +43,7 @@ class NetworkTopo( Topo ):
 
 def run():
     topo = NetworkTopo()
-    net = Mininet( topo=topo, controller=RemoteController(name="c", ip="127.0.0.1"), link=TCLink )
+    net = Mininet( topo=topo, controller=RemoteController(name="c", ip="127.0.0.1", link=TCLink) )
     net.start()
     CLI( net )
     net.stop()
