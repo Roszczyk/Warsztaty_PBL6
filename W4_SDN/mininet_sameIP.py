@@ -8,7 +8,7 @@ from mininet.net import Mininet
 from mininet.node import Node
 from mininet.log import setLogLevel, info
 from mininet.cli import CLI
-from mininet.link import Intf
+from mininet.link import Intf, TCLink
 from mininet.node import Controller
 
 from mininet.node import Ryu, RemoteController
@@ -43,7 +43,7 @@ class NetworkTopo( Topo ):
 
 def run():
     topo = NetworkTopo()
-    net = Mininet( topo=topo, controller=RemoteController(name="c", ip="127.0.0.1"), link="TCLink" )
+    net = Mininet( topo=topo, controller=RemoteController(name="c", ip="127.0.0.1"), link=TCLink )
     net.start()
     CLI( net )
     net.stop()
