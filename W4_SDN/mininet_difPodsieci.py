@@ -43,6 +43,7 @@ def run():
     topo = NetworkTopo()
     
     net = Mininet( topo=topo, controller=None )
+    net.staticArp()
     net.start()
     CLI( net )
     net.stop()
