@@ -1,3 +1,0 @@
-rootProject.name = 'Simple'
-include 'SimpleClient'
-include 'AddServer'
