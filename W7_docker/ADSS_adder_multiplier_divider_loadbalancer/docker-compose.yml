@@ -1,0 +1,41 @@
+version: '3.0'
+
+services:
+  nginx:
+    depends_on:
+      - "divide-server"
+    build: LoadBalancer
+    image: wwupi/nginx
+    ports:
+      - "8083:8080"
+
+  simple-client:
+    build: SimpleClient
+    image: wwupi/simple-client
+    ports:
+      - "8080:8080"
+      - "9990:9990"
+
+  add-server:
+    # build: AddServer
+    image: wwupi/add-server
+    ports:
+      - "8081:8080"
+      - "9991:9990"
+
+  multiply-server:
+    # build: MultiplyServer
+    image: wwupi/multiply-server
+    ports:
+      - "8082:8080"
+      - "9992:9990"
+
+  divide-server:
+    # build: DivideServer
+    image: wwupi/divide-server
+    # ports:
+    #   - "8081-8084:8080"
+    #   - "9991-9994:9990"
+    deploy:
+      mode: replicated
+      replicas: 4
