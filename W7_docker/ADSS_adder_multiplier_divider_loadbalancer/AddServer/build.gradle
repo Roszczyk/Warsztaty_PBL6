@@ -1,0 +1,20 @@
+group 'de.wwu.pi'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  providedCompile group: 'javax', name: 'javaee-api', version: '7.0'
+}
