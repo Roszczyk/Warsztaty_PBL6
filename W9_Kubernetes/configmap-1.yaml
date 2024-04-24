@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pam-cm-1
+data:
+  index.html:  |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Lorem ipsum</title>
+    </head>
+    <body>
+      <h1>PAM</h1>
+      <p>Hello world</p>
+    </body>
+    </html>
