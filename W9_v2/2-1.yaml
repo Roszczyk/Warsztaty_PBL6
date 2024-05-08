@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: check-elka
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: curl-container
+            image: curlimages/curl
+            command: ["sh", "-c"]
+            args: ["date; curl -Is https://www.elka.pw.edu.pl/ | head -n 1"]
+          restartPolicy: OnFailure
