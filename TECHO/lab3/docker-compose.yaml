@@ -1,0 +1,13 @@
+version: "2"
+services:
+  tester:
+    image: test/env-test
+    environment:
+      - ENV_USERNAME=PAM-ENV_DOCKERFILE
+    build:
+      args:
+        - ARG_LICZBA=2222
+        - ARG_USERNAME=PAM-ARG-DOCKERFILE
+      context: .
+    stdin_open: true
+    tty: true
