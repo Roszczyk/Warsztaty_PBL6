@@ -18,18 +18,22 @@ def run(x_data, y_data, name, activation, alpha, hls, lr, max_iter, solver):
     X_train = scaler.transform(X_train)
     X_test = scaler.transform(X_test)
 
-    begin_time = time.time()
+    begin_training = time.time()
 
     mlp_reg = MLPRegressor(activation=activation, alpha=alpha, hidden_layer_sizes=hls, learning_rate=lr, max_iter=max_iter, solver=solver)
     mlp_reg.fit(X_train, y_train)
-    y_pred = mlp_reg.predict(X_test)
 
-    end_time = time.time()
+    end_training = time.time()
+
+    begin_inference = time.time()
+    y_pred = mlp_reg.predict(X_test)
+    end_inference = time.time
 
     print(f"\n\n{name}\n")
     print(f"R2 SCORE: {round(r2_score(y_test, y_pred),2)}")
     print(f"Mean Squared Error: {round(mean_squared_error(y_test, y_pred), 2)}")
-    print(f"Time: {end_time-begin_time} s")
+    print(f"Time TRAINING: {1000*(end_training-begin_training)} ms")
+    print(f"Time INFERENCE: {1000*(end_inference - begin_inference)} ms")
     print("\n\n")
 
 data, increment = read_csv_file("F_2_8_5b_NewFile4.csv")

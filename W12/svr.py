@@ -19,19 +19,20 @@ def run(x_data, y_data, name, degree, gamma, coef, tol, c, epsilon, shrinking):
     X_train = scaler.transform(X_train)
     X_test = scaler.transform(X_test)
 
-    begin_time = time.time()
-
+    begin_training = time.time()
     svr_reg = SVR(degree=degree, gamma=gamma, coef0=coef, tol=tol, C=c, epsilon=epsilon, shrinking=shrinking)
-
     svr_reg.fit(X_train, y_train)
-    y_pred = svr_reg.predict(X_test)
+    end_training = time.time()
 
-    end_time = time.time()
+    begin_inference = time.time()
+    y_pred = svr_reg.predict(X_test)
+    end_inference = time.time()
 
     print(f"\n\n{name}\n")
     print(f"R2 SCORE: {round(r2_score(y_test, y_pred),2)}")
     print(f"Mean Squared Error: {round(mean_squared_error(y_test, y_pred), 2)}")
-    print(f"Time: {end_time-begin_time} s")
+    print(f"Time TRAINING: {1000*(end_training-begin_training)} ms")
+    print(f"Time INFERENCE: {1000*(end_inference - begin_inference)} ms")
     print("\n\n")
 
 
