@@ -27,7 +27,7 @@ def run(x_data, y_data, name, activation, alpha, hls, lr, max_iter, solver):
 
     begin_inference = time.time()
     y_pred = mlp_reg.predict(X_test)
-    end_inference = time.time
+    end_inference = time.time()
 
     print(f"\n\n{name}\n")
     print(f"R2 SCORE: {round(r2_score(y_test, y_pred),2)}")
