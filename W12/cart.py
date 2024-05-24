@@ -43,6 +43,6 @@ ch2=make_np_array(data,1) *1000
 ch3=make_np_array(data,2) *1000
 times=make_np_array(data,3) *1000000
 
-run(times, ch1, "CH1", criterion='friedman_mse', splitter=15, max_depth=3, min_samples_split='random')
-run(times, ch2, "CH2", criterion='friedman_mse', splitter=15, max_depth=5, min_samples_split='best')
-run(times, ch3, "CH3", criterion='squared_error', splitter=15, max_depth=5, min_samples_split='best')
+run(times, ch1, "CH1", criterion='friedman_mse', splitter=15, max_depth='random', min_samples_split=3)
+run(times, ch2, "CH2", criterion='friedman_mse', splitter=15, max_depth='best', min_samples_split=5)
+run(times, ch3, "CH3", criterion='squared_error', splitter=15, max_depth='est', min_samples_split=5)
